@@ -179,5 +179,54 @@ router.get('/getAllEmployees', async(req, res) => {
   res.status(200).send(employees);
 });
 
+router.get('/getProdViaName/:id', async(req, res) => {
+  var id = req.params.id;
+  console.log(id);
+  let product = await productSchema.find({Name: id}).exec();
+  if (product.length>0) {
+    res.status(200).send(product);
+  }
+  else {
+    res.status(404).json({
+      message: 'No product with that name found!'
+    });
+  };
+  
+});
+
+router.get('/getEmployeeViaName/:id', async(req, res) => {
+  var id = req.params.id;
+  let employee = await employeeSchema.find({Full_name: id}).exec();
+  if (employee.length>0) {
+    res.status(200).send(employee);
+  }
+  else {
+    res.status(404).json({
+      message: 'No employee with that name found!'
+    });
+  };
+  
+});
+
+router.get('/getCustomerViaName/:id', async(req, res) => {
+  var id = req.params.id;
+  let customer = await customerSchema.find({Full_name: id}).exec();
+  if(customer.length>0){
+    res.status(200).send(customer);
+  }else {
+    res.status(404).json({message: 'No customer by that name found!'});
+  };
+});
+
+// router.get('/getTransaction/:id', async(req, res) => {
+//   var id = req.params.id;
+//   let customer = await transactionsSchema.find({Name: id}).exec();
+//   if(customer.length>0){
+//     res.status(200).send(customer);
+//   }else {
+//     res.status(404).json({message: 'No customer by that name found!'});
+//   };
+// });
+
 
 module.exports = router;

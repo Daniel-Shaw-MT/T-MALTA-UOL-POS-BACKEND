@@ -14,11 +14,7 @@ content-type: application/json
 
 ####
 
-GET http://localhost:3000/getAllProducts HTTP/1.1
-content-type: application/json
-
-{
-}
+GET http://localhost:3000/getProdViaName/irst Product HTTP/1.1
 
 
 # catID: req.body.catID,
