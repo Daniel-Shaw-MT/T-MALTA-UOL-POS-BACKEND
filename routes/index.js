@@ -16,6 +16,12 @@ router.get('/', async function(req, res, next) {
   res.redirect(200, 'https://github.com/Daniel-Shaw-MT/T-MALTA-UOL-POS-BACKEND')
 });
 
+router.get('/allProducts', async function(req, res, next) {
+  if (req.body.Auth_level < 0) {
+    res.send(403, "You don't have access to this functionality!");
+  }
+})
+
 // Add product route
 router.post('/addProduct', async(req, res) => {
   const data = new productSchema({
@@ -143,6 +149,35 @@ router.post('/newTransaction', async(req, res) => {
   }
 });
 
+router.get('/getAllProducts', async(req, res) => {
+  let products = await productSchema.find({}).exec();
+  res.status(200).send(products);
+});
+
+router.get('/getAllCategories', async(req, res) => {
+  let categories = await categorySchema.find({}).exec();
+  res.status(200).send(categories);
+});
+
+router.get('/getAllTransactions', async(req, res)=>{
+  let transactions = await transactionsSchema.find({}).exec();
+  res.status(200).send(transactions);
+});
+
+router.get('/getAllCustomers', async(req, res) => {
+  let customers = await customerSchema.find({}).exec();
+  res.status(200).send(customers);
+});
+
+router.get('/getAllOffers', async(req, res) => {
+  let offers = await offersSchema.find({}).exec();
+  res.status(200).send(offers);
+});
+
+router.get('/getAllEmployees', async(req, res) => {
+  let employees = await employeeSchema.find({}).exec();
+  res.status(200).send(employees);
+});
 
 
 module.exports = router;

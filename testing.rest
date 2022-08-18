@@ -1,0 +1,31 @@
+####
+
+POST http://localhost:3000/addProduct HTTP/1.1
+content-type: application/json
+
+{
+    "catID": "Example",
+    "Name": "First Product",
+    "Price": 11.00,
+    "Purchase_Price": 5.00,
+    "Dimensions": "WW/DD/HH",
+    "Offer_ID": 5
+}
+
+####
+
+GET http://localhost:3000/getAllProducts HTTP/1.1
+content-type: application/json
+
+{
+}
+
+
+# catID: req.body.catID,
+    # Name: req.body.Name,
+    # Price: req.body.Price,
+    # Purchase_Price: req.body.Purchase_Price,
+    # Dimensions: req.body.Dimensions,
+    # Offer_ID: req.body.Offer_ID
+
+
