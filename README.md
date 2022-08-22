@@ -24,3 +24,7 @@ Still to do before next major update is released (V1.2):
 - Authors - Daniel Shaw
 - What was done: Created code that facilitates our database connection, created ALL schemas neccessary for project, created all base POST routes that
 will enable us to add each type of entity in the database.
+
+### V1.2 Second major update adding functionality:
+- Authors - Daniel Shaw
+- What was done: Created many get endpoints and a few more post endpoints, front-end development will commence this week..
